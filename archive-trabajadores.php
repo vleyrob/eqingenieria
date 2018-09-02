@@ -2,30 +2,18 @@
 
 <div class="page-content-wrapper ">
     <div class="content">
-        <div class="jumbotron" data-pages="parallax">
-            <div class=" container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
-              <div class="inner">
-                <!-- START BREADCRUMB -->
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                  <li class="breadcrumb-item active">Trabajadores</li>
-                </ol>
-                <!-- END BREADCRUMB -->
-              </div>
-            </div>
-        </div>
-
-        <div class=" container-fluid   container-fixed-lg">
-
-
-
-
-
-
-
-
-
-
+      
+      <div class=" container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">         
+          <ul class="breadcrumb p-l-0">
+            <li class="breadcrumb-item"><a href="#">Inicio</a>
+            </li>
+            <li class="breadcrumb-item active">Trabajadores
+            </li>
+          </ul>                
+          <h3 class="page-title">Trabajadores</h3>
+      </div>
+      
+      <div class=" container-fluid   container-fixed-lg">
 
 
 <?php
@@ -33,7 +21,8 @@ $trabajadores = array(
         'numberposts'       => -1,
         'posts_per_page'    => -1,
         'post_type'         => 'trabajadores',
-        'order'             => 'desc'     
+        'orderby'           => 'title',
+        'order'             => 'asc'     
                 );
 
 
@@ -41,30 +30,17 @@ $trabajadores = array(
 $the_query = new WP_Query( $trabajadores );  
 if( $the_query->have_posts() ):    ?>
 
-        <div class="card card-transparent">
-              <div class="card-header ">
-                <div class="card-title">Trabajadores
-                </div>
-                <div class="pull-right">
-                  <div class="col-xs-12">
-                    <input type="text" id="search-table" class="form-control pull-right" placeholder="Buscar">
-                  </div>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-        </div>
-
 
               <div class="card-block">
                 <table class="table table-hover demo-table-search table-responsive-block" id="tableWithSearch">
                   <thead>
                     <tr>
-                      <th style="min-width:50px">#</th>
-                      <th>Nombre completo</th>
-                      <th>Estatus</th>
-                      <th style="min-width:300px">Área</th>
-                      <th>Fecha de inicio</th>
-                      <th></th>
+                      <th style="max-width:50px;">ID</th>
+                      <th style="min-width:400px;">Nombre completo</th>
+                      <th style="min-width:250px;" class="text-center">Estatus</th>
+                      <th style="min-width:250px;" class="text-center">Área</th>
+                      <th style="min-width:150px;" class="text-center">Fecha de inicio</th>
+                      <th style="min-width:50px;"></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -86,21 +62,25 @@ if( $the_query->have_posts() ):    ?>
 
                     <tr>
                       <td class="v-align-middle semi-bold">
-                        <p><?php the_field('trabajador_id'); ?></p>
+                        <p><a href="<?php the_permalink(); ?>"><?php the_field('trabajador_id'); ?></a></p>
                       </td>
                       <td class="v-align-middle semi-bold">
-                        <p><?php the_field('nombres'); ?> <?php the_field('paterno'); ?> <?php the_field('materno'); ?></p>
+                        <p><a href="<?php the_permalink(); ?>"><?php the_field('nombres'); ?> <?php the_field('paterno'); ?> <?php the_field('materno'); ?></a></p>
                       </td>
-                      <td class="v-align-middle"><?php the_field('estatus'); ?></td>
+                      <td class="v-align-middle  text-center">                                                    
+                        <?php $estatus = get_field('estatus'); 
+                                                    if ($estatus == 'Activo') { echo '<i class="far fa-check-circle text-success fs-16 m-t-10"></i>'; }   
+                                                    if ($estatus == 'Baja') { echo '<i class="fa fa-times-circle text-danger fs-16 m-t-10"></i> '; } ?><a href="<?php the_permalink(); ?>"> <?php the_field('estatus'); ?></a></td>
                       <td class="v-align-middle">
-                        <?php the_field('area_de_trabajo'); ?>
+                      <a href="<?php the_permalink(); ?>"><?php the_field('area_de_trabajo'); ?></a>
                       </td>
                       <td class="v-align-middle">
-                        <?php the_field('fecha_de_contratacion'); ?>
+                      <a href="<?php the_permalink(); ?>"><?php the_field('fecha_de_contratacion'); ?></a>
                       </td>
                       <td><a href="<?php the_permalink(); ?>">Ver</a></td>
 
                     </tr>
+                  
    
 <?php
 

@@ -16,6 +16,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta content="" name="description" />
     <meta content="" name="author" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="<?php echo get_template_directory_uri(); ?>/pages/css/pages.css" rel="stylesheet" type="text/css" /> 
     <link href="<?php echo get_template_directory_uri(); ?>/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo get_template_directory_uri(); ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo get_template_directory_uri(); ?>/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
@@ -72,6 +75,7 @@
       <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
       <!-- BEGIN SIDEBAR MENU HEADER-->
       <div class="sidebar-header">
+
         <?php /* <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_white.png" alt="logo" class="brand" data-src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_white.png" data-src-retina="<?php echo get_template_directory_uri(); ?>/assets/img/logo_white_2x.png" width="78" height="22"> */ ?>
         <?php /* <div class="sidebar-header-controls">
           <button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20 hidden-md-down" data-pages-toggle="#appMenu"><i class="fa fa-angle-down fs-16"></i>
@@ -88,69 +92,54 @@
           <li class="m-t-30 ">
             <a href="<?php echo get_site_url(); ?>" class="detailed">
               <span class="title">Inicio</span>
-              <span class="details">12 Notificaciones</span>
+
             </a>
             <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
           </li>
           <li class="">
             <a href="<?php echo get_site_url(); ?>/trabajadores" class="detailed">
-              <span class="title">Trabajadores</span>
-              <span class="details">24 Activos</span>
+              <span class="title">(<?php wp_contador_post('trabajadores'); ?>) Trabajadores</span>
+              <!--span class="details"> Activos</span-->
             </a>
-            <span class="icon-thumbnail"><i class="pg-mail"></i></span>
+            <span class="icon-thumbnail"><i class="fas fa-users"></i></span>
           </li>
           <li class="">
             <a href="<?php echo get_site_url(); ?>/clientes" class="detailed">
-              <span class="title">Clientes</span>
-              <span class="details">24 Activos</span>
+              <span class="title">(<?php wp_contador_post('clientes'); ?>) Clientes</span>
+              <!--span class="details"> Activos</span -->
             </a>
-            <span class="icon-thumbnail"><i class="pg-mail"></i></span>
+            <span class="icon-thumbnail"><i class="far fa-address-book"></i></span>
           </li>          
           <li class="">
             <a href="<?php echo get_site_url(); ?>/proveedores" class="detailed">
-              <span class="title">Proveedores</span>
-              <span class="details">234 New Emails</span>
+              <span class="title">(<?php wp_contador_post('proveedores'); ?>) Proveedores</span>
             </a>
-            <span class="icon-thumbnail"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+            <span class="icon-thumbnail"><i class="far fa-handshake"></i></span>
           </li>
           <li class="">
             <a href="<?php echo get_site_url(); ?>/cotizaciones" class="detailed">
-              <span class="title">Cotizaciones</span>
-              <span class="details">234 New Emails</span>
+              <span class="title">(<?php wp_contador_post('cotizaciones'); ?>) Cotizaciones</span>
             </a>
-            <span class="icon-thumbnail"><i class="pg-mail"></i></span>
+            <span class="icon-thumbnail"><i class="fas fa-calculator"></i></i></span>
           </li>
           <li class="">
-            <a href="<?php echo get_site_url(); ?>/clientes"><span class="title">Clientes</span></a>
-            <span class="icon-thumbnail"><i class="pg-social"></i></span>
-          </li>          
-          <li class="">
             <a href="#" class="detailed">
-              <span class="title">Materiales en proceso</span>
-              <span class="details">234 New Emails</span>
+              <span class="title"> (<?php wp_contador_post('facturas'); ?>) Facturación</span>
             </a>
-            <span class="icon-thumbnail"><i class="pg-mail"></i></span>
+            <span class="icon-thumbnail"><i class="fas fa-money-check-alt"></i></span>
           </li>                                    
           <li>
             <a href="#"><span class="title">Reportes</span>
             <span class=" arrow"></span></a>
-            <span class="icon-thumbnail"><i class="pg-calender"></i></span>
+            <span class="icon-thumbnail"><i class="fas fa-poll"></i></span>
             <ul class="sub-menu">
               <li class="">
-                <a href="#">Basic</a>
-                <span class="icon-thumbnail">c</span>
+                <a href="#">Ingresos</a>
+                <span class="icon-thumbnail"><i class="far fa-money-bill-alt"></i></span>
               </li>
               <li class="">
-                <a href="#">Languages</a>
-                <span class="icon-thumbnail">L</span>
-              </li>
-              <li class="">
-                <a href="#">Month</a>
-                <span class="icon-thumbnail">M</span>
-              </li>
-              <li class="">
-                <a href="#">Lazy load</a>
-                <span class="icon-thumbnail">La</span>
+                <a href="#">Egresos</a>
+                <span class="icon-thumbnail"><i class="fas fa-money-bill-alt"></i></span>
               </li>
             </ul>
           </li>
@@ -297,7 +286,7 @@
 
           </ul> */ ?>
           <!-- END NOTIFICATIONS LIST -->
-          <a href="#" class="search-link hidden-md-down" data-toggle="search"><i class="pg-search"></i>Ingrese una frase o palabra clave para <span class="bold">buscar</span></a>
+          
         </div>
         <div class="d-flex align-items-center">
           <!-- START User Info-->
@@ -308,7 +297,7 @@
       
 ?>
           <div class="pull-left p-r-10 fs-14 font-heading hidden-md-down">
-            <span class="semi-bold"><?php echo $first_name; ?></span> <span class="text-master"><?php echo  $last_name; ?></span>
+           Bienvenido/a  <span class="semi-bold"><?php echo $first_name; ?></span> <span class="text-master"><?php echo  $last_name; ?></span>
           </div>
  
         </div>

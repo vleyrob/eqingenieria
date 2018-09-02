@@ -613,6 +613,20 @@ echo '<p>Bienvenido/a, ¿Requieres apoyo? Contacta al soporte técnico <a href="
 }
 
 
+function wp_contador_post($contador) {
+    
+    
+    $args = array(
+        
+        'post_type' => $contador
+      );
+      $the_query = new WP_Query( $args );
+      echo  $the_query->found_posts;
+      wp_reset_postdata();
+    }
+
+
+
 /*
 function wpb_new_contactmethods( $contactmethods ) {
 // Add Twitter
